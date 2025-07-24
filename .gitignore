@@ -1,4 +1,30 @@
+# Node.js dependencies
 node_modules/
 
+# Environment variables
 .env
-Ansible/Key
+
+# Ansible SSH keys
+Ansible/key/
+Ansible/Key/
+*.pem
+*.key
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Local testing artifacts
+*.local
+*.swp
