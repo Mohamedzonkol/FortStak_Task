@@ -1,0 +1,15 @@
+- name: Deploy application using Docker Compose
+  hosts: vm
+  become: true
+  tasks:
+    - name: Ensure Docker is installed
+      command: docker --version
+      register: docker_version
+    - name: Display Docker version
+      debug:
+        msg: "Docker version: {{ docker_version.stdout }}"
+
+    - name: Run Docker Compose
+      ansible.builtin.shell: docker compose up -d
+      args:
+        chdir: /home/azureuser/app
