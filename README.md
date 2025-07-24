@@ -91,6 +91,8 @@ The work is divided into clearly structured parts, with each part addressing key
 
 ✅ Send Discord notifications on updates
 
+✅ Automate deployment using Ansible Playbook
+
 🐳 Docker Compose Setup
 
 The application is deployed via docker-compose with the following configuration:
@@ -123,13 +125,23 @@ Why Watchtower?
 
     Verified working with a test image push to Docker Hub.
 
+🤖 Ansible Playbook for Docker Compose Deployment
+
+We created an Ansible Playbook to automate the deployment of the app using Docker Compose on the Azure VM
+
 🧪 Results
 
     ✅ App container updates automatically when a new image is pushed
 
+## ![container updates](Ansible/ansible_result.jpg)
+
     ✅ Health checks confirm container is running before marking it healthy
 
+## ![container updates](Ansible/ansible_result.jpg)
+
     ✅ Discord alerts are delivered upon update
+
+## ![container updates](Ansible/ansible_result.jpg)
 
     ✅ System is now fully automated and monitored
 
