@@ -48,21 +48,36 @@ The work is divided into clearly structured parts, with each part addressing key
 
 ### 📝 Objective
 
-- Create a Linux VM (locally or on cloud)
-- Use Ansible from local machine to:
-  - Connect to the VM
-  - Install Docker and required dependencies
+- Provisioned an **Ubuntu 22.04 VM** on **Microsoft Azure**.
+- Configured SSH access using a private key.
+- Wrote an **Ansible Playbook** to:
+
+  - Install required dependencies.
+  - Add Docker’s official GPG key and repository.
+  - Install Docker CE, CLI, and containerd.
+  - Start the Docker service and enable it on boot.
+  - Add the user to the `docker` group.
+  - Verify Docker installation and service status.
+
+  ### 📄 Playbook Highlights
+
+- Used `apt_repository` for secure repo addition.
+- Used `gpg --dearmor` to store keys under `/usr/share/keyrings/`
+- Included verification tasks for:
+  - Docker version
+  - Docker service status
 
 ### 📋 Tasks
 
-- [ ] Create an inventory file
-- [ ] Write an Ansible playbook (`install_docker.yml`)
-- [ ] Use SSH key-based access for provisioning
-- [ ] Confirm Docker is running on the VM
+- ✅ Created an Azure VM (Ubuntu 22.04)
+- ✅ Wrote Ansible inventory and playbook (`install_docker.yml`)
+- ✅ Installed Docker, Docker CLI, and containerd
+- ✅ Enabled and verified Docker service
+- ✅ Added `ubuntu` user to the `docker` group
 
-> 🛠 **Status**: In Progress
+### 🖼️ Execution Output Screenshot
 
----
+## ![Ansible Docker Setup](Ansible/ansible_result.jpg)
 
 ## 🧱 Part 3: Docker Compose & Auto Update (40 points)
 
