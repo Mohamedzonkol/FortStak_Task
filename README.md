@@ -152,7 +152,43 @@ We created an Ansible Playbook to automate the deployment of the app using Docke
 ### 📝 Objective
 
 - Deploy the app using Kubernetes instead of Docker Compose
-- Use ArgoCD for GitOps-style continuous deployment
+- Use Azure Kubernetes Service (AKS) to host the application
+- Set up ArgoCD for Continuous Delivery (CD)
+
+☸️ Kubernetes Deployment on AKS
+
+    Created a managed AKS cluster on Azure
+
+    Installed kubectl on the VM and connected to the AKS cluster using az aks get-credentials
+
+    Deployed the application with:
+
+        deployment.yaml (for app container)
+
+        service.yaml (exposed as Loadbalncar)
+
+    Verified deployment:
+
+        Pod running successfully
+
+        App exposed on a cluster node (via Loadbalncar)
+
+
+📦 ArgoCD Setup for GitOps CD
+
+    Installed ArgoCD using kubectl apply -n argocd -f https://.../install.yaml
+
+    Patched argocd-server to LoadBalancer for public dashboard access
+
+    Logged into the ArgoCD web UI via:
+
+        External IP: http://<ARGO_EXTERNAL_IP>
+
+        Initial Password: extracted from the argocd-initial-admin-secret
+
+    Created an application in ArgoCD pointing to the GitHub repo
+
+    Enabled auto-sync from GitHub (private repo access via manual config)
 
 ### 📋 Tasks
 
