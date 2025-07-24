@@ -79,21 +79,59 @@ The work is divided into clearly structured parts, with each part addressing key
 
 ## ![Ansible Docker Setup](Ansible/ansible_result.jpg)
 
-## 🧱 Part 3: Docker Compose & Auto Update (40 points)
+## 🧱 Part 3: Docker Compose & Auto Update
 
 ### 📝 Objective
 
-- Deploy the application on the VM using Docker Compose
-- Configure health checks
-- Implement an auto-update mechanism to pull the latest image from Docker Hub when available
+✅ Deploy the application on the VM using Docker Compose
 
-### 🔧 Tools Considered for Auto Update
+✅ Configure proper health checks
 
-- Watchtower
-- Ouroboros
-- Custom cron + pull script (fallback)
+✅ Implement an auto-update mechanism to pull the latest image from Docker Hub
 
-> 🛠 **Status**: Pending
+✅ Send Discord notifications on updates
+
+🐳 Docker Compose Setup
+
+The application is deployed via docker-compose with the following configuration:
+
+    Exposes the application on port 80 (mapped internally to 4000)
+
+    Connects to a MongoDB Atlas database using an environment variable
+
+    Implements a health check using wget to confirm the app is reachable
+
+    Ensures container restarts on failure
+
+🔁 Auto Update with Watchtower
+
+Tool Chosen: Watchtower
+
+Why Watchtower?
+
+    Lightweight and container-friendly
+
+    Integrates with Docker Hub
+
+    Supports private image registries with config.json
+
+    Can send update notifications via Discord, Slack, etc.
+
+📬 Discord Notification
+
+    Watchtower successfully sends a notification to the designated Discord channel when an image update is detected and applied.
+
+    Verified working with a test image push to Docker Hub.
+
+🧪 Results
+
+    ✅ App container updates automatically when a new image is pushed
+
+    ✅ Health checks confirm container is running before marking it healthy
+
+    ✅ Discord alerts are delivered upon update
+
+    ✅ System is now fully automated and monitored
 
 ---
 
