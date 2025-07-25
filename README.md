@@ -3,6 +3,9 @@
 This repository contains the full solution to the DevOps Internship Assessment as outlined in the task brief.  
 The work is divided into clearly structured parts, with each part addressing key DevOps concepts such as containerization, CI/CD, infrastructure provisioning, and automated deployment.
 
+**Technologies Used:**  
+Docker · GitHub Actions · Docker Compose · Watchtower · Ansible · Kubernetes (AKS) · ArgoCD · MongoDB Atlas · Discord Webhooks · Azure CLI · Ubuntu 22.04
+
 ---
 
 ## 📦 Part 1: Dockerization & CI Pipeline
@@ -44,7 +47,7 @@ The work is divided into clearly structured parts, with each part addressing key
 
 ---
 
-## ⚙️ Part 2: VM Provisioning with Ansible (30 points)
+## ⚙️ Part 2: VM Provisioning with Ansible
 
 ### 📝 Objective
 
@@ -133,21 +136,21 @@ We created an Ansible Playbook to automate the deployment of the app using Docke
 
     ✅ App container updates automatically when a new image is pushed
 
-## ![container updates](Ansible/ansible_result.jpg)
+## ![container updates](Docker/watchTower.jpg)
 
     ✅ Health checks confirm container is running before marking it healthy
 
-## ![container updates](Ansible/ansible_result.jpg)
+## ![Health checks](Docker/healthcheck.jpg)
 
     ✅ Discord alerts are delivered upon update
 
-## ![container updates](Ansible/ansible_result.jpg)
+## ![container updates](Docker/discordnotigy.jpg)
 
     ✅ System is now fully automated and monitored
 
 ---
 
-## ☁️ Part 4 (Bonus): Kubernetes & ArgoCD (50 points)
+## ☁️ Part 4 (Bonus): Kubernetes & ArgoCD
 
 ### 📝 Objective
 
@@ -157,22 +160,20 @@ We created an Ansible Playbook to automate the deployment of the app using Docke
 
 ☸️ Kubernetes Deployment on AKS
 
-    Created a managed AKS cluster on Azure
+- Created a managed AKS cluster on Azure
+- Installed `kubectl` on the VM and connected to the AKS cluster using `az aks get-credentials`
+- Deployed the application with:
 
-    Installed kubectl on the VM and connected to the AKS cluster using az aks get-credentials
+  - `deployment.yaml` (for the app container)
+  - `service.yaml`
 
-    Deployed the application with:
+- Verified deployment:
+  - Pod running successfully
+  - App accessible externally using Azure Public IP
 
-        deployment.yaml (for app container)
+## ![node](k8s/node.jpg)
 
-        service.yaml (exposed as Loadbalncar)
-
-    Verified deployment:
-
-        Pod running successfully
-
-        App exposed on a cluster node (via Loadbalncar)
-
+## ![Pod](k8s/pod.jpg)
 
 📦 ArgoCD Setup for GitOps CD
 
@@ -190,50 +191,24 @@ We created an Ansible Playbook to automate the deployment of the app using Docke
 
     Enabled auto-sync from GitHub (private repo access via manual config)
 
-### 📋 Tasks
-
-- [ ] Install K3s or Minikube on the VM
-- [ ] Write Kubernetes manifests (Deployment, Service, etc.)
-- [ ] Install ArgoCD and connect to GitHub repo
-- [ ] Configure auto-sync on image update
-
-> 🛠 **Status**: Pending
+## ![ArgoCD](k8s/argo.jpg)
 
 ---
 
-## 🔐 Security Note
+## My App
 
-> 🔒 **No secrets, credentials, or sensitive environment variables are committed to this repository.**  
-> All secret information is managed securely via `.env` and GitHub Secrets.
-
----
+## ![App](app.jpg)
 
 ## 🧠 Assumptions
 
 - MongoDB is cloud-hosted on MongoDB Atlas
 - Docker Hub repository is private and pre-created
-- Cloud VM or local VM uses Ubuntu 22.04+
+- Cloud VM In Azure uses Ubuntu 22.04+
 - SSH access is secured with keys, not passwords
-
----
-
-## 📅 Deadline
-
-> **Thursday, July 31st at 4:00 PM**
-
----
-
-## ✅ Progress Checklist
-
-- [x] Part 1: Docker + CI
-- [ ] Part 2: Ansible + VM
-- [ ] Part 3: Compose + Auto Update
-- [ ] Part 4: Kubernetes + ArgoCD
 
 ---
 
 ## 👤 Author
 
 **Mohamed Zonkol**  
-DevOps Enthusiast & Internship Candidate  
 Email: `mo.zonkol@gmail.com`
