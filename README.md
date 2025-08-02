@@ -80,7 +80,7 @@ Docker · GitHub Actions · Docker Compose · Watchtower · Ansible · Kubernete
 
 ### 🖼️ Execution Output Screenshot
 
-## ![Ansible Docker Setup](Ansible/ansible_result.jpg)
+## ![Ansible Docker Setup](imges/ansible_result.jpg)
 
 ## 🧱 Part 3: Docker Compose & Auto Update
 
@@ -136,15 +136,15 @@ We created an Ansible Playbook to automate the deployment of the app using Docke
 
     ✅ App container updates automatically when a new image is pushed
 
-## ![container updates](Docker/watchTower.jpg)
+## ![container updates](imges/watchTower.jpg)
 
     ✅ Health checks confirm container is running before marking it healthy
 
-## ![Health checks](Docker/healthcheck.jpg)
+## ![Health checks](imges/healthcheck.jpg)
 
     ✅ Discord alerts are delivered upon update
 
-## ![container updates](Docker/discordnotigy.jpg)
+## ![container updates](imges/discordnotigy.jpg)
 
     ✅ System is now fully automated and monitored
 
@@ -171,9 +171,9 @@ We created an Ansible Playbook to automate the deployment of the app using Docke
   - Pod running successfully
   - App accessible externally using Azure Public IP
 
-## ![node](k8s/node.jpg)
+## ![node](imges/node.jpg)
 
-## ![Pod](k8s/pod.jpg)
+## ![Pod](imges/pod.jpg)
 
 📦 ArgoCD Setup for GitOps CD
 
@@ -191,7 +191,7 @@ We created an Ansible Playbook to automate the deployment of the app using Docke
 
     Enabled auto-sync from GitHub (private repo access via manual config)
 
-## ![ArgoCD](k8s/argo.jpg)
+## ![ArgoCD](imges/argo.jpg)
 
 ---
 
